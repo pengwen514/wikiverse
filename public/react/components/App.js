@@ -8,6 +8,9 @@ export const App = () => {
 
 	const [pages, setPages] = useState([]);
 
+	
+
+
 	async function fetchPages(){
 		try {
 			const response = await fetch(`${apiURL}/wiki`);
@@ -24,9 +27,12 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>WikiVerse</h1>
-			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} />
+	<h4>Search</h4>
+	<h4>User</h4>
+      <h1>Welcome to WikiVerse</h1>
+			<h2>Article List</h2>
+			<PagesList pages={pages}/>
+			<button>Sign Up for Wikiverse</button>
+			<button>Submit an Article</button>
 		</main>
-	)
-}
+	)}
