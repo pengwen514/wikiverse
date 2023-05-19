@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import apiURL from '../api';
 
 export const Page = (props) => {
 
+  const [pagesData, setPagesData] = useState({})
+
+
  async function handleClick(){
-  console.log(props)
     try{
       const response = await fetch(`${apiURL}/wiki/${props.page.slug}`);
-      const pagesData = await response.json();
+      pagesInfo = await response.json();
+      setPagesData(pagesInfo)
       console.log(pagesData)
     }
     catch(err){
@@ -18,7 +21,7 @@ export const Page = (props) => {
 
   return <>
     <a onClick={handleClick}><h3>{props.page.title}</h3></a>
-    
+    <h1>{pagesData ?  pagesData.id : 'error'}</h1>
   </>
 } 
 	
